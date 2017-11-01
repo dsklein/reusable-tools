@@ -6,6 +6,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <style type='text/css'>
+	 body {
+		margin: 0;
+		padding: 0;
+	}
+
 	#count {
 		background-color: LightSkyBlue;
 		border-radius: 10px;
@@ -15,7 +20,7 @@
 	}
 
 	#filetable {
-		margin-top: 50px;
+		margin: 50px 0px 10px 3px;
 	}
 
 	h3, form {
@@ -28,11 +33,16 @@
 
 	#topbar {
 		background-color: LightGray;
+		height: 22px;
 		padding: 10px;
 		position: fixed;
 		top: 0px;
+/* For a full-width search bar, use the following: */
 		width: 100%;
-		//left: 70%;
+/* Or, for a box that hovers on the right: */
+		/*margin-right: calc(100% - 100vw);
+		right: 0px;
+		width: 400px; */
 	}
 </style>
 </head>
