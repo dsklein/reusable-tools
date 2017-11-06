@@ -49,7 +49,7 @@
 
 <body>
 <div id="topbar">
-	<form><h3>Filter files: <input type="text" name="filterbox" placeholder="Search..." /></h3></form>
+	<form><h3>Filter files: <input type="text" name="filterbox" placeholder="Search..." value="<?php if (isset($_GET["q"])) print $_GET["q"]; ?>" /></h3></form>
 	<span id="count">..</span> files found
 </div>
 <div id="filetable">
@@ -80,17 +80,22 @@
 
 
 <script>
-$(document).ready(function(){
-		document.getElementById("count").innerHTML = $("#filetable tr").length;
+function runsearch() {
+
+	var searchkey = $("input[name='filterbox']").val().toLowerCase();
+	$("#filetable tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(searchkey) > -1)
+	});
+
+	var foundfiles = $("#filetable tr:visible").length;
+	document.getElementById("count").innerHTML = foundfiles;
+}
+
+$(document).ready(function() {
+	 runsearch();
 
 	$( "input[name='filterbox']" ).on('keyup', function() {
-		var searchkey = $(this).val().toLowerCase();
-		$("#filetable tr").filter(function() {
-			$(this).toggle($(this).text().toLowerCase().indexOf(searchkey) > -1)
-				});
-
-		var foundfiles = $("#filetable tr:visible").length;
-		document.getElementById("count").innerHTML = foundfiles;
+		runsearch();
 	});
 });
 
