@@ -1,12 +1,12 @@
 <html>
 
 <head>
-<title><?php echo $_SERVER['SCRIPT_FILENAME']; ?></title>
+<title>Contents of <?php $find = array("home/users/","public_html/","index.php"); $replace = array("~","",""); echo str_replace($find,$replace,$_SERVER['SCRIPT_FILENAME']); ?></title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <style type='text/css'>
-	 body {
+	body {
 		margin: 0;
 		padding: 0;
 	}
