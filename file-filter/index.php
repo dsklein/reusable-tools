@@ -20,7 +20,11 @@
 	}
 
 	#filetable {
-		margin: 50px 0px 10px 3px;
+		margin: 10px 0px 10px 3px;
+	}
+
+	#header {
+		margin: 10px;
 	}
 
 	h3, form {
@@ -33,9 +37,9 @@
 
 	#topbar {
 		background-color: LightGray;
-		height: 22px;
+		box-sizing: border-box;
 		padding: 10px;
-		position: fixed;
+		position: sticky;
 		top: 0px;
 /* For a full-width search bar, use the following: */
 		width: 100%;
@@ -48,6 +52,9 @@
 </head>
 
 <body>
+<div id="header">
+<h1>Contents of <?php $find = array("home/users/","public_html/","index.php"); $replace = array("~","",""); echo str_replace($find,$replace,$_SERVER['SCRIPT_FILENAME']); ?></h1>
+</div>
 <div id="topbar">
 	<form><h3>Filter files: <input type="text" name="filterbox" placeholder="Search..." value="<?php if (isset($_GET["q"])) print $_GET["q"]; ?>" /></h3></form>
 	<span id="count">..</span> files found
